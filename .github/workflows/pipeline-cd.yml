@@ -65,4 +65,4 @@ jobs:
    
     - name: Run terraform Apply
       run: | 
-        terraform apply -f vpc.tf
+        terraform apply -auto-approve
