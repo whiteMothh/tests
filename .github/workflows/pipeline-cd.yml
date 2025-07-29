@@ -62,3 +62,7 @@ jobs:
         secret: ${{ secrets.ACCESS_TOKEN }}
         issue-title: manual-approval-tittle
         issue-body: manual-approval-body
+   
+    - name: Run terraform Apply
+      run: | 
+        terraform apply -f vpc.tf
