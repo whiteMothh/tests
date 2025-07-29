@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "dev" ]
 
+env:
+  AWS_REGION: us-east-1
+
 permissions:
   contents: read
 
@@ -25,6 +28,8 @@ jobs:
         aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
         aws-region: ${{ env.AWS_REGION }}
 
+
+# Search Github action > marketplace terraform
     - name: HashiCorp - Setup Terraform
       uses: hashicorp/setup-terraform@v2.0.3
       with:
@@ -42,6 +47,7 @@ jobs:
       run: | 
         terraform plan -out=tfplan.txt
 
+# Search Github action > marketplace upload artifact
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.6.2
       with:
